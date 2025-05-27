@@ -1,0 +1,59 @@
+@keyframes floatUp {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(-200px) scale(1.2);
+        opacity: 0;
+      }
+    }
+
+    .star {
+      position: absolute;
+      color: gold;
+      font-size: 1.5rem;
+      animation: floatUp 10s ease-in-out forwards;
+      pointer-events: none;
+    }
+
+    .rod-stick {
+      width: 4px;
+      height: 240px;
+      background-color: #333;
+      position: relative;
+      margin: 0 auto;
+      border-radius: 2px;
+    }
+
+    .bead {
+      width: 30x;
+      height: 20px;
+      background: linear-gradient(to right, currentColor 30%, currentColor 70%);
+      border-radius: 12px;
+      color: #3b82f6;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      transition: top 0.3s ease;
+    }
+
+
+    .bead:hover {
+      filter: brightness(1.9);
+    }
+
+    @media (min-width: 640px) {
+      .bead {
+        width: 28px;
+        height: 20px;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .bead {
+        width: 30px;
+        height: 20px;
+      }
+    }

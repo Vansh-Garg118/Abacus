@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abacus Game</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-gray-900 min-h-screen flex items-center justify-center p-4">
+
+  <!-- Abacus Container -->
+  <div class="bg-gray-800 rounded-2xl shadow-lg p-4 sm:p-6 w-full max-w-5xl text-white">
+    <h1 class="text-2xl sm:text-3xl font-bold mb-6 text-center">Abacus By Vansh Garg</h1>
+    
+
+    <div class="flex flex-col sm:flex-row justify-between items-center mb-6 space-y-4 sm:space-y-0">
+      <div class="flex items-center space-x-2">
+        <div class="relative">
+          <button id="toggleSetDropdown"
+            class="px-3 py-1 bg-yellow-500 text-white rounded hover:bg-yellow-600 text-sm sm:text-base">
+            Set Number
+          </button>
+          
+          <div id="setDropdown"
+          class="absolute left-0 mt-2 w-48 bg-white text-black border border-gray-300 rounded shadow-lg p-3 hidden z-10">
+          <input id="customNumber" type="number" min="0" max="99999" placeholder="0 - 99999"
+          class="w-full px-2 py-1 border rounded mb-2 text-sm" />
+          <button id="setCustomBtn"
+          class="w-full px-3 py-1 bg-yellow-500 text-white rounded hover:bg-yellow-600 text-sm">Set</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="flex items-center space-x-4">
+      <div class="text-lg sm:text-xl">Target: <span id="targetNumber" class="font-mono font-bold"></span></div>
+      <button id="newQuestionBtn"
+      class="px-4 py-2 text-sm sm:text-base bg-blue-500 text-white rounded-lg hover:bg-blue-600">New Random</button>
+    </div>
+  </div>
+  
+  
+  <!-- main abacus sticks and beeds structure 
+  sticks will load dynamically through JS -->
+  <div class="sm:overflow-x-visible overflow-x-auto mb-6">
+    <div id="abacus"
+    class="flex flex-nowrap sm:justify-around justify-start sm:gap-6  px-2 sm:px-0 w-max sm:w-full">
+  </div>
+  
+</div>
+
+
+
+<div class="text-lg sm:text-xl text-center mb-2">Current Value: <span id="currentValue"
+  class="font-mono font-bold">0</span></div>
+  <div id="statusMessage" class="text-center text-gray-300">Keep adjusting the beads.</div>
+</div>
+<audio id="successSound" src="applause.mp3" preload="auto"></audio>
+
+<div id="star-container" class="pointer-events-none fixed top-0 left-0 w-full h-full z-50"></div>
+
+<script src="script.js"></script>
+</body>
+
+</html>

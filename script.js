@@ -169,9 +169,10 @@ function changeBead(index, delta, f = false) {
 }
 
 function newQuestion() {
+    beads=[];
     beads.fill(0);
     renderAllRods();
-    targetNumber = Math.floor(Math.random() * 100);
+    targetNumber = Math.floor(Math.random() * 100000);
     dig=Math.floor(Math.log(targetNumber))/(Math.floor(Math.log(10)));
     console.log(dig);
     for(let i=0;i<dig;i++){
@@ -184,6 +185,7 @@ function newQuestion() {
 }
 
 function setCustomNumber() {
+    beads=[];
     const val = parseInt(customInput.value, 10);
     if (isNaN(val) || val < 0 ) {
         statusEl.textContent = 'Enter a valid number (0-99999)';

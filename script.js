@@ -1,4 +1,6 @@
-const beads = [0, 0, 0, 0, 0];
+// const beads = [0, 0, 0, 0, 0];
+let  beads=[];
+
 const maxBeads = 9;
 const abacus = document.getElementById('abacus');
 const targetEl = document.getElementById('targetNumber');
@@ -169,14 +171,21 @@ function changeBead(index, delta, f = false) {
 function newQuestion() {
     beads.fill(0);
     renderAllRods();
-    targetNumber = Math.floor(Math.random() * 100000);
+    targetNumber = Math.floor(Math.random() * 100);
+    dig=Math.floor(Math.log(targetNumber))/(Math.floor(Math.log(10)));
+    console.log(dig);
+    for(let i=0;i<dig;i++){
+        beads[i]=0;
+    }
+    console.log(beads);
     targetEl.textContent = targetNumber;
+    createRods();
     updateDisplay();
 }
 
 function setCustomNumber() {
     const val = parseInt(customInput.value, 10);
-    if (isNaN(val) || val < 0 || val > 99999) {
+    if (isNaN(val) || val < 0 ) {
         statusEl.textContent = 'Enter a valid number (0-99999)';
         statusEl.classList.replace('text-gray-300', 'text-red-500');
         statusEl.classList.replace('text-green-400', 'text-red-500');
@@ -186,7 +195,14 @@ function setCustomNumber() {
     beads.fill(0);
     renderAllRods();
     targetNumber = val;
+    dig=Math.floor(Math.log(targetNumber))/(Math.floor(Math.log(10)));
+    console.log(dig);
+    for(let i=0;i<dig;i++){
+        beads[i]=0;
+    }
+    console.log(beads);
     targetEl.textContent = targetNumber;
+    createRods();
     updateDisplay();
     customInput.value = '';
     setDropdown.classList.add('hidden');
